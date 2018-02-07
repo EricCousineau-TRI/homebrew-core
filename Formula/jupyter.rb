@@ -287,7 +287,7 @@ class Jupyter < Formula
     end
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :JUPYTER_PATH => ENV["JUPYTER_PATH"], :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :JUPYTER_PATH => ENV["JUPYTER_PATH"], :PYTHONPATH => "#{ENV["PYTHONPATH"]}:${PYTHONPATH}")
 
     # remove bundled kernel
     rm_rf Dir["#{libexec}/share/jupyter/kernels"]
